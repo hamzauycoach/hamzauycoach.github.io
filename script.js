@@ -30,3 +30,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Navbar Color Change on Scroll
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    
+    if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
