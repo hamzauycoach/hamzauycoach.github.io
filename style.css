@@ -306,22 +306,24 @@ h2::after {
 body.dark-mode .video-section {
     background: #242424;
 }
-
 .video-background-text {
     position: absolute;
+    top: 50%;
+    right: 0;
+
+    transform: translateY(-50%);
+
     font-size: 12rem;
-    font-weight: 900;
-    color: rgba(99, 164, 168, 0.08);
+    font-weight: 100;
+    color: rgba(99, 164, 168, 1);
     letter-spacing: 20px;
     text-transform: uppercase;
-    z-index: 1;
+    z-index: 0;
+
     white-space: nowrap;
     user-select: none;
     pointer-events: none;
-    transform: translateY(-50%);
-    top: 50%;
 }
-
 body.dark-mode .video-background-text {
     color: rgba(99, 164, 168, 0.05);
 }
@@ -588,6 +590,12 @@ body.dark-mode .pricing-card.featured {
     font-weight: 900;
     color: #63a4a8;
     margin: 1.5rem 0;
+}
+
+.price-details {
+    font-size: 1.2rem;
+    color: #333333;
+    margin-bottom: 1.5rem;
 }
 
 .pricing-card ul {
