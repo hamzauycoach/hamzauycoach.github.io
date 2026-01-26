@@ -1,195 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitZone Gym - Transform Your Body</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#subscribe">Subscribe</a></li>
-            <li><a href="#pricing">Plans</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="#video" data-en="Video" data-ar="الفيديو">Video</a></li>
+            <li><a href="#features" data-en="Features" data-ar="المميزات">Features</a></li>
+            <li><a href="#subscribe" data-en="Subscribe" data-ar="الاشتراك">Subscribe</a></li>
+            <li><a href="#pricing" data-en="Plans" data-ar="الخطط">Plans</a></li>
+            <li><a href="#reviews" data-en="Reviews" data-ar="التقييمات">Reviews</a></li>
+            <li><a href="#faq" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
         </ul>
+        <div class="nav-controls">
+            <!-- Dark Mode Toggle -->
+            <button id="darkModeToggle" class="toggle-btn" aria-label="Toggle Dark Mode">
+                <span class="sun">☀️</span>
+                <span class="moon">🌙</span>
+            </button>
+            <!-- Language Toggle -->
+            <button id="langToggle" class="toggle-btn lang-btn" aria-label="Toggle Language">
+                <span class="lang-text">AR</span>
+            </button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Transform Your Body, Transform Your Life</h1>
-            <p>Join FitZone Gym and start your fitness journey today</p>
-            <a href="#pricing" class="btn">Get Started Now</a>
+            <h1 data-en="Transform Your Body, Transform Your Life" data-ar="حول جسمك، حول حياتك">Transform Your Body, Transform Your Life</h1>
+            <p data-en="Join FitZone Gym and start your fitness journey today" data-ar="انضم إلى فيت زون جيم وابدأ رحلة اللياقة اليوم">Join FitZone Gym and start your fitness journey today</p>
+            <a href="#pricing" class="btn" data-en="Get Started Now" data-ar="ابدأ الآن">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Welcome Video Section -->
+    <section id="video" class="video-section">
+        <div class="video-background-text" data-en="ARE YOU READY?" data-ar="هل أنت مستعد؟">ARE YOU READY?</div>
+        <div class="video-container">
+            <video controls poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80">
+                <source src="your-gym-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
     <!-- Features -->
     <section id="features" class="features">
-        <h2>Why Choose FitZone?</h2>
+        <h2 data-en="Why Choose FitZone?" data-ar="لماذا تختار فيت زون؟">Why Choose FitZone?</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">💪</div>
-                <h3>Professional Trainers</h3>
-                <p>Certified experts to guide your fitness journey</p>
+                <h3 data-en="Professional Trainers" data-ar="مدربون محترفون">Professional Trainers</h3>
+                <p data-en="Certified experts to guide your fitness journey" data-ar="خبراء معتمدون لإرشادك في رحلة اللياقة">Certified experts to guide your fitness journey</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🏋️</div>
-                <h3>Modern Equipment</h3>
-                <p>State-of-the-art machines and facilities</p>
+                <h3 data-en="Modern Equipment" data-ar="معدات حديثة">Modern Equipment</h3>
+                <p data-en="State-of-the-art machines and facilities" data-ar="أحدث الأجهزة والمرافق">State-of-the-art machines and facilities</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🕐</div>
-                <h3>24/7 Access</h3>
-                <p>Work out on your schedule, any time</p>
+                <h3 data-en="24/7 Access" data-ar="وصول على مدار الساعة">24/7 Access</h3>
+                <p data-en="Work out on your schedule, any time" data-ar="تمرن وفقاً لجدولك، في أي وقت">Work out on your schedule, any time</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">👥</div>
-                <h3>Group Classes</h3>
-                <p>Yoga, spinning, HIIT, and more</p>
+                <h3 data-en="Group Classes" data-ar="فصول جماعية">Group Classes</h3>
+                <p data-en="Yoga, spinning, HIIT, and more" data-ar="يوغا، سبينينج، هيت، والمزيد">Yoga, spinning, HIIT, and more</p>
             </div>
         </div>
     </section>
 
     <!-- How to Subscribe -->
     <section id="subscribe" class="subscribe">
-        <h2>How to Subscribe</h2>
+        <h2 data-en="How to Subscribe" data-ar="كيفية الاشتراك">How to Subscribe</h2>
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
-                <h3>Choose Your Plan</h3>
-                <p>Select the membership that fits your goals</p>
+                <h3 data-en="Choose Your Plan" data-ar="اختر خطتك">Choose Your Plan</h3>
+                <p data-en="Select the membership that fits your goals" data-ar="اختر العضوية التي تناسب أهدافك">Select the membership that fits your goals</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
-                <h3>Sign Up</h3>
-                <p>Fill out our simple registration form</p>
+                <h3 data-en="Sign Up" data-ar="سجل">Sign Up</h3>
+                <p data-en="Fill out our simple registration form" data-ar="املأ نموذج التسجيل البسيط">Fill out our simple registration form</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
-                <h3>Get Your Pass</h3>
-                <p>Receive your gym access card</p>
+                <h3 data-en="Get Your Pass" data-ar="احصل على بطاقتك">Get Your Pass</h3>
+                <p data-en="Receive your gym access card" data-ar="استلم بطاقة الدخول للنادي">Receive your gym access card</p>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
-                <h3>Start Training</h3>
-                <p>Begin your fitness transformation</p>
+                <h3 data-en="Start Training" data-ar="ابدأ التمرين">Start Training</h3>
+                <p data-en="Begin your fitness transformation" data-ar="ابدأ تحولك في اللياقة">Begin your fitness transformation</p>
             </div>
         </div>
     </section>
 
     <!-- Pricing Plans -->
     <section id="pricing" class="pricing">
-        <h2>Subscription Plans</h2>
+        <h2 data-en="Subscription Plans" data-ar="خطط الاشتراك">Subscription Plans</h2>
         <div class="pricing-grid">
             <div class="pricing-card">
-                <h3>Basic</h3>
-                <div class="price">$29<span style="font-size: 1rem;">/month</span></div>
+                <h3 data-en="Basic" data-ar="أساسي">Basic</h3>
+                <div class="price">$29<span style="font-size: 1rem;" data-en="/month" data-ar="/شهر">/month</span></div>
                 <ul>
-                    <li>Gym access during off-peak hours</li>
-                    <li>Locker room access</li>
-                    <li>Free WiFi</li>
-                    <li>1 guest pass per month</li>
+                    <li data-en="Gym access during off-peak hours" data-ar="الوصول للنادي في أوقات غير الذروة">Gym access during off-peak hours</li>
+                    <li data-en="Locker room access" data-ar="الوصول لغرف الخزائن">Locker room access</li>
+                    <li data-en="Free WiFi" data-ar="واي فاي مجاني">Free WiFi</li>
+                    <li data-en="1 guest pass per month" data-ar="تصريح ضيف واحد شهرياً">1 guest pass per month</li>
                 </ul>
-                <a href="#" class="btn">Join Now</a>
+                <a href="#" class="btn" data-en="Join Now" data-ar="انضم الآن">Join Now</a>
             </div>
             <div class="pricing-card featured">
-                <h3>Premium</h3>
-                <div class="price">$59<span style="font-size: 1rem;">/month</span></div>
+                <h3 data-en="Premium" data-ar="مميز">Premium</h3>
+                <div class="price">$59<span style="font-size: 1rem;" data-en="/month" data-ar="/شهر">/month</span></div>
                 <ul>
-                    <li>24/7 gym access</li>
-                    <li>All group classes included</li>
-                    <li>Personal trainer consultation</li>
-                    <li>Sauna & steam room access</li>
-                    <li>3 guest passes per month</li>
+                    <li data-en="24/7 gym access" data-ar="وصول للنادي على مدار الساعة">24/7 gym access</li>
+                    <li data-en="All group classes included" data-ar="جميع الفصول الجماعية مشمولة">All group classes included</li>
+                    <li data-en="Personal trainer consultation" data-ar="استشارة مدرب شخصي">Personal trainer consultation</li>
+                    <li data-en="Sauna & steam room access" data-ar="الوصول للساونا وغرفة البخار">Sauna & steam room access</li>
+                    <li data-en="3 guest passes per month" data-ar="3 تصاريح ضيوف شهرياً">3 guest passes per month</li>
                 </ul>
-                <a href="#" class="btn">Join Now</a>
+                <a href="#" class="btn" data-en="Join Now" data-ar="انضم الآن">Join Now</a>
             </div>
             <div class="pricing-card">
-                <h3>Elite</h3>
-                <div class="price">$99<span style="font-size: 1rem;">/month</span></div>
+                <h3 data-en="Elite" data-ar="نخبة">Elite</h3>
+                <div class="price">$99<span style="font-size: 1rem;" data-en="/month" data-ar="/شهر">/month</span></div>
                 <ul>
-                    <li>Everything in Premium</li>
-                    <li>4 personal training sessions</li>
-                    <li>Nutrition consultation</li>
-                    <li>Priority class booking</li>
-                    <li>Unlimited guest passes</li>
+                    <li data-en="Everything in Premium" data-ar="كل شيء في المميز">Everything in Premium</li>
+                    <li data-en="4 personal training sessions" data-ar="4 جلسات تدريب شخصي">4 personal training sessions</li>
+                    <li data-en="Nutrition consultation" data-ar="استشارة تغذية">Nutrition consultation</li>
+                    <li data-en="Priority class booking" data-ar="حجز أولوية للفصول">Priority class booking</li>
+                    <li data-en="Unlimited guest passes" data-ar="تصاريح ضيوف غير محدودة">Unlimited guest passes</li>
                 </ul>
-                <a href="#" class="btn">Join Now</a>
+                <a href="#" class="btn" data-en="Join Now" data-ar="انضم الآن">Join Now</a>
             </div>
         </div>
     </section>
 
     <!-- Reviews -->
     <section id="reviews" class="reviews">
-        <h2>What Our Members Say</h2>
+        <h2 data-en="What Our Members Say" data-ar="ماذا يقول أعضاؤنا">What Our Members Say</h2>
         <div class="reviews-grid">
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Best gym in town! The trainers are amazing and really care about your progress. I've lost 20 pounds in 3 months!"</p>
-                <div class="reviewer">- Sarah Johnson</div>
+                <p data-en="Best gym in town! The trainers are amazing and really care about your progress. I've lost 20 pounds in 3 months!" data-ar="أفضل نادي في المدينة! المدربون رائعون ويهتمون حقاً بتقدمك. لقد فقدت 20 رطلاً في 3 أشهر!">"Best gym in town! The trainers are amazing and really care about your progress. I've lost 20 pounds in 3 months!"</p>
+                <div class="reviewer" data-en="- Sarah Johnson" data-ar="- سارة جونسون">- Sarah Johnson</div>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"The 24/7 access is perfect for my busy schedule. Equipment is always clean and well-maintained. Highly recommend!"</p>
-                <div class="reviewer">- Michael Chen</div>
+                <p data-en="The 24/7 access is perfect for my busy schedule. Equipment is always clean and well-maintained. Highly recommend!" data-ar="الوصول على مدار الساعة مثالي لجدولي المزدحم. المعدات نظيفة دائماً ومحفوظة جيداً. أوصي به بشدة!">"The 24/7 access is perfect for my busy schedule. Equipment is always clean and well-maintained. Highly recommend!"</p>
+                <div class="reviewer" data-en="- Michael Chen" data-ar="- مايكل تشين">- Michael Chen</div>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
-                <p>"Love the group classes! Great community atmosphere and the instructors are top-notch. Worth every penny."</p>
-                <div class="reviewer">- Emma Williams</div>
+                <p data-en="Love the group classes! Great community atmosphere and the instructors are top-notch. Worth every penny." data-ar="أحب الفصول الجماعية! جو مجتمعي رائع والمدربون ممتازون. يستحق كل قرش.">"Love the group classes! Great community atmosphere and the instructors are top-notch. Worth every penny."</p>
+                <div class="reviewer" data-en="- Emma Williams" data-ar="- إيما ويليامز">- Emma Williams</div>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
     <section id="faq" class="faq">
-        <h2>Frequently Asked Questions</h2>
+        <h2 data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">Frequently Asked Questions</h2>
         <div class="faq-item">
             <div class="faq-question">
-                <span>Do you offer a free trial?</span>
+                <span data-en="Do you offer a free trial?" data-ar="هل تقدمون تجربة مجانية؟">Do you offer a free trial?</span>
                 <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>Yes! We offer a 3-day free trial for all new members. You can explore our facilities and try out classes before committing to a membership.</p>
+                <p data-en="Yes! We offer a 3-day free trial for all new members. You can explore our facilities and try out classes before committing to a membership." data-ar="نعم! نقدم تجربة مجانية لمدة 3 أيام لجميع الأعضاء الجدد. يمكنك استكشاف مرافقنا وتجربة الفصول قبل الالتزام بالعضوية.">Yes! We offer a 3-day free trial for all new members. You can explore our facilities and try out classes before committing to a membership.</p>
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-question">
-                <span>Can I freeze my membership?</span>
+                <span data-en="Can I freeze my membership?" data-ar="هل يمكنني تجميد عضويتي؟">Can I freeze my membership?</span>
                 <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>Yes, you can freeze your membership for up to 2 months per year for medical or travel reasons. Just contact our front desk.</p>
+                <p data-en="Yes, you can freeze your membership for up to 2 months per year for medical or travel reasons. Just contact our front desk." data-ar="نعم، يمكنك تجميد عضويتك لمدة تصل إلى شهرين في السنة لأسباب طبية أو سفر. فقط اتصل بمكتب الاستقبال.">Yes, you can freeze your membership for up to 2 months per year for medical or travel reasons. Just contact our front desk.</p>
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-question">
-                <span>What should I bring on my first day?</span>
+                <span data-en="What should I bring on my first day?" data-ar="ماذا يجب أن أحضر في يومي الأول؟">What should I bring on my first day?</span>
                 <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>Bring comfortable workout clothes, athletic shoes, a water bottle, and a towel. We provide lockers and shower facilities.</p>
+                <p data-en="Bring comfortable workout clothes, athletic shoes, a water bottle, and a towel. We provide lockers and shower facilities." data-ar="أحضر ملابس تمرين مريحة، أحذية رياضية، زجاجة ماء، ومنشفة. نحن نوفر خزائن ومرافق استحمام.">Bring comfortable workout clothes, athletic shoes, a water bottle, and a towel. We provide lockers and shower facilities.</p>
             </div>
         </div>
         <div class="faq-item">
             <div class="faq-question">
-                <span>Are personal trainers included?</span>
+                <span data-en="Are personal trainers included?" data-ar="هل المدربون الشخصيون مشمولون؟">Are personal trainers included?</span>
                 <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>It depends on your plan. Premium members get a consultation, while Elite members get 4 sessions per month. Additional sessions can be purchased separately.</p>
+                <p data-en="It depends on your plan. Premium members get a consultation, while Elite members get 4 sessions per month. Additional sessions can be purchased separately." data-ar="يعتمد على خطتك. أعضاء المميز يحصلون على استشارة، بينما أعضاء النخبة يحصلون على 4 جلسات شهرياً. يمكن شراء جلسات إضافية بشكل منفصل.">It depends on your plan. Premium members get a consultation, while Elite members get 4 sessions per month. Additional sessions can be purchased separately.</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 FitZone Gym. All rights reserved. | Contact: info@fitzonegym.com | Phone: (555) 123-4567</p>
+        <p data-en="© 2025 FitZone Gym. All rights reserved. | Contact: info@fitzonegym.com | Phone: (555) 123-4567" data-ar="© 2025 فيت زون جيم. جميع الحقوق محفوظة. | الاتصال: info@fitzonegym.com | الهاتف: (555) 123-4567">© 2025 FitZone Gym. All rights reserved. | Contact: info@fitzonegym.com | Phone: (555) 123-4567</p>
     </footer>
 
     <script src="script.js"></script>
