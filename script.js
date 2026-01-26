@@ -1,3 +1,23 @@
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+const navControls = document.querySelector('.nav-controls');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    navControls.classList.toggle('active');
+});
+
+// Close menu when clicking on a link
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        navControls.classList.remove('active');
+    });
+});
+
 // FAQ Toggle Functionality
 document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {

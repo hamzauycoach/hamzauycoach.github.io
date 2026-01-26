@@ -12,7 +12,16 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <ul>
+        <div class="nav-logo">Hamzauy Coaching</div>
+        
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        
+        <ul id="navMenu">
             <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
             <li><a href="#video" data-en="Video" data-ar="الفيديو">Video</a></li>
             <li><a href="#features" data-en="Features" data-ar="المميزات">Features</a></li>
@@ -21,6 +30,7 @@
             <li><a href="#reviews" data-en="Reviews" data-ar="التقييمات">Reviews</a></li>
             <li><a href="#faq" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
         </ul>
+        
         <div class="nav-controls">
             <!-- Dark Mode Toggle -->
             <button id="darkModeToggle" class="toggle-btn" aria-label="Toggle Dark Mode">
