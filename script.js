@@ -1,9 +1,12 @@
-// Navbar Toggler - Bootstrap-style Collapse
+// Navbar Toggler - Improved Mobile Menu
 const navbarToggler = document.getElementById('navbarToggle');
 const navbarContent = document.getElementById('navbarContent');
+const body = document.body;
 
 if (navbarToggler && navbarContent) {
-    navbarToggler.addEventListener('click', () => {
+    navbarToggler.addEventListener('click', (e) => {
+        e.stopPropagation();
+        
         // Toggle collapsed class on button
         navbarToggler.classList.toggle('collapsed');
         
@@ -13,6 +16,15 @@ if (navbarToggler && navbarContent) {
         // Update aria-expanded
         const isExpanded = !navbarToggler.classList.contains('collapsed');
         navbarToggler.setAttribute('aria-expanded', isExpanded);
+        
+        // Prevent body scroll when menu is open on mobile
+        if (window.innerWidth <= 768) {
+            if (isExpanded) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        }
     });
 
     // Close menu when clicking on a nav link
@@ -22,14 +34,43 @@ if (navbarToggler && navbarContent) {
                 navbarToggler.classList.add('collapsed');
                 navbarContent.classList.add('collapse');
                 navbarToggler.setAttribute('aria-expanded', 'false');
+                body.style.overflow = '';
             }
         });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            const isClickInsideNav = navbarContent.contains(e.target) || navbarToggler.contains(e.target);
+            const isExpanded = !navbarToggler.classList.contains('collapsed');
+            
+            if (!isClickInsideNav && isExpanded) {
+                navbarToggler.classList.add('collapsed');
+                navbarContent.classList.add('collapse');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+                body.style.overflow = '';
+            }
+        }
+    });
+    
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 768) {
+                body.style.overflow = '';
+                navbarToggler.classList.add('collapsed');
+                navbarContent.classList.add('collapse');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            }
+        }, 250);
     });
 }
 
 // Dark Mode Toggle
 const darkModeToggle = document.getElementById('darkModeToggle');
-const body = document.body;
 
 if (darkModeToggle) {
     // Check for saved dark mode preference
@@ -116,9 +157,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const targetPosition = target.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
         }
     });
@@ -182,8 +226,12 @@ window.addEventListener('load', () => {
 });
 
 // Update on scroll
+let scrollTimer;
 window.addEventListener('scroll', () => {
-    updateActiveLink();
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+        updateActiveLink();
+    }, 50);
 });
 
 // Update on click
@@ -194,31 +242,54 @@ navLinks.forEach(link => {
 });
 
 // Navbar Color Change on Scroll
+let lastScroll = 0;
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     const pricingSection = document.getElementById('pricing');
+    const currentScroll = window.scrollY;
     
     if (!nav) return;
     
+    // Add/remove scrolled class for navbar background
     if (pricingSection) {
         const pricingTop = pricingSection.offsetTop;
         const pricingBottom = pricingTop + pricingSection.clientHeight;
-        const scrollPos = window.scrollY + 100; // Offset for navbar height
+        const scrollPos = currentScroll + 100;
         
         // Check if we're in the pricing section
         if (scrollPos >= pricingTop && scrollPos < pricingBottom) {
             nav.classList.remove('scrolled');
-        } else if (window.scrollY > 100) {
+        } else if (currentScroll > 100) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
     } else {
         // Fallback to original behavior
-        if (window.scrollY > 100) {
+        if (currentScroll > 100) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
     }
+    
+    lastScroll = currentScroll;
 });
+
+// Add keyboard navigation support
+document.addEventListener('keydown', (e) => {
+    // Close menu on Escape key
+    if (e.key === 'Escape' && navbarToggler && !navbarToggler.classList.contains('collapsed')) {
+        navbarToggler.click();
+    }
+});
+
+// Prevent iOS double-tap zoom on buttons
+if ('ontouchstart' in window) {
+    document.querySelectorAll('button, .btn').forEach(element => {
+        element.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            this.click();
+        }, { passive: false });
+    });
+}

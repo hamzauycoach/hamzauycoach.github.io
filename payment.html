@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Hamzauy Coaching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="payment-header">
+        <div class="container">
+            <a href="index.html" class="logo">Hamzauy Coaching</a>
+            <div class="secure-badge">
+                <span>🔒</span>
+                <span>Secure Checkout</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="payment-main">
+        <div class="container">
+            <div class="checkout-grid">
+                <!-- Left Column - Forms -->
+                <div class="checkout-forms">
+                    <!-- Step 1: Shipping Information -->
+                    <section class="checkout-section">
+                        <div class="section-header">
+                            <span class="step-number">1</span>
+                            <h2>Shipping Information</h2>
+                        </div>
+                        <form id="shippingForm" class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required pattern="^01[0-9]{9}$" placeholder="01XXXXXXXXX">
+                                <small class="input-help">Must be 11 digits starting with 01</small>
+                                <small class="input-error" id="phoneError">Phone number must be 11 digits starting with 01</small>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="address">Address *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="EG" selected>Egypt</option>
+                                    <option value="SA">Saudi Arabia</option>
+                                    <option value="AE">UAE</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="notes">Additional Notes (Optional)</label>
+                                <textarea id="notes" name="notes" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </section>
+
+                    <!-- Step 2: Choose Plan -->
+                    <section class="checkout-section">
+                        <div class="section-header">
+                            <span class="step-number">2</span>
+                            <h2>Choose Your Plan</h2>
+                        </div>
+                        <div class="plans-selection">
+                            <div class="plan-option" data-plan="regular" data-price="600">
+                                <input type="radio" id="planRegular" name="plan" value="regular">
+                                <label for="planRegular">
+                                    <div class="plan-header">
+                                        <h3>Regular</h3>
+                                        <div class="plan-price">600 <span>EGP</span></div>
+                                    </div>
+                                    <ul class="plan-features">
+                                        <li>Customized diet plan</li>
+                                        <li>Training program</li>
+                                        <li>Weekly follow-up</li>
+                                        <li>48-hour delivery</li>
+                                    </ul>
+                                </label>
+                            </div>
+                            
+                            <div class="plan-option featured" data-plan="advanced" data-price="1000">
+                                <input type="radio" id="planAdvanced" name="plan" value="advanced" checked>
+                                <label for="planAdvanced">
+                                    <span class="popular-badge">Popular</span>
+                                    <div class="plan-header">
+                                        <h3>Advanced</h3>
+                                        <div class="plan-price">1000 <span>EGP</span></div>
+                                    </div>
+                                    <ul class="plan-features">
+                                        <li>All Regular features</li>
+                                        <li>Daily follow-up</li>
+                                        <li>Priority response</li>
+                                        <li>24-hour delivery</li>
+                                        <li>Weekly video call</li>
+                                    </ul>
+                                </label>
+                            </div>
+                            
+                            <div class="plan-option" data-plan="vip" data-price="1500">
+                                <input type="radio" id="planVip" name="plan" value="vip">
+                                <label for="planVip">
+                                    <div class="plan-header">
+                                        <h3>VIP</h3>
+                                        <div class="plan-price">1500 <span>EGP</span></div>
+                                    </div>
+                                    <ul class="plan-features">
+                                        <li>All Advanced features</li>
+                                        <li>Premium support</li>
+                                        <li>Exclusive content</li>
+                                        <li>Immediate delivery</li>
+                                    </ul>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Step 3: Payment Method -->
+                    <section class="checkout-section">
+                        <div class="section-header">
+                            <span class="step-number">3</span>
+                            <h2>Payment Method</h2>
+                        </div>
+                        <div class="payment-methods">
+                            <div class="payment-option">
+                                <input type="radio" id="paymentFawry" name="paymentMethod" value="fawry" checked>
+                                <label for="paymentFawry">
+                                    <div class="payment-icon">💳</div>
+                                    <div class="payment-info">
+                                        <h4>Credit Card</h4>
+                                        <p>Pay securely with Fawaterk</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="payment-option">
+                                <input type="radio" id="paymentInstapay" name="paymentMethod" value="instapay">
+                                <label for="paymentInstapay">
+                                    <div class="payment-icon">📱</div>
+                                    <div class="payment-info">
+                                        <h4>InstaPay / Wallet</h4>
+                                        <p>Fast & secure mobile payment</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Complete Checkout Button -->
+                    <button class="btn-checkout" id="completeCheckout">
+                        Complete Purchase
+                    </button>
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div class="order-summary-wrapper">
+                    <div class="order-summary sticky">
+                        <h3>Order Summary</h3>
+                        
+                        <div class="summary-item">
+                            <span>Plan:</span>
+                            <span id="summaryPlan">Advanced</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-item">
+                            <span>Subtotal:</span>
+                            <span id="summarySubtotal">1000 EGP</span>
+                        </div>
+                        
+                        <div class="summary-item">
+                            <span>Tax:</span>
+                            <span>0 EGP</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-total">
+                            <span>Total:</span>
+                            <span id="summaryTotal">1000 EGP</span>
+                        </div>
+                        
+                        <div class="summary-features">
+                            <h4>What's Included:</h4>
+                            <ul id="summaryFeatures">
+                                <li>✓ All Regular features</li>
+                                <li>✓ Daily follow-up</li>
+                                <li>✓ Priority response</li>
+                                <li>✓ 24-hour delivery</li>
+                                <li>✓ Weekly video call</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="trust-badges">
+                            <div class="badge">🔒 Secure Payment</div>
+                            <div class="badge">✓ Money-Back Guarantee</div>
+                            <div class="badge">⚡ Instant Delivery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Payment Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Complete Payment</h2>
+            <p class="modal-subtitle">Choose your payment method</p>
+            
+            <!-- Payment Method Tabs -->
+            <div class="payment-tabs">
+                <button class="payment-tab active" data-method="instapay">
+                    <span>📱</span> InstaPay
+                </button>
+                <button class="payment-tab" data-method="wallet">
+                    <span>💰</span> Wallet
+                </button>
+            </div>
+            
+            <!-- InstaPay Section -->
+            <div class="payment-tab-content active" id="instapay-content">
+                <p class="tab-instruction">Scan the QR code with your banking app</p>
+                
+                <div class="qr-code">
+                    <img src="instaqr.jpg" alt="InstaPay QR Code" class="qr-image">
+                </div>
+                
+                <div class="payment-instructions">
+                    <p>Amount to pay:</p>
+                    <strong id="modalAmount">1000 EGP</strong>
+                </div>
+            </div>
+            
+            <!-- Wallet Section -->
+            <div class="payment-tab-content" id="wallet-content">
+                <p class="tab-instruction">Send payment to this wallet number</p>
+                
+                <div class="wallet-info">
+                    <div class="wallet-number-display">
+                        <span class="wallet-label">Wallet Number:</span>
+                        <div class="wallet-number-box">
+                            <strong class="wallet-number">01200000000</strong>
+                            <button class="copy-btn" id="copyWalletBtn" type="button" title="Copy number">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                                <span class="copy-text">Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-instructions">
+                    <p>Amount to pay:</p>
+                    <strong id="modalAmountWallet">1000 EGP</strong>
+                </div>
+            </div>
+            
+            <button class="btn-primary" id="confirmPayment">I've Completed Payment</button>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
