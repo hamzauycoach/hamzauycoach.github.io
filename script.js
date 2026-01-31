@@ -1,22 +1,95 @@
-// Hamburger Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('navMenu');
-const navControls = document.querySelector('.nav-controls');
+// Navbar Toggler - Bootstrap-style Collapse
+const navbarToggler = document.getElementById('navbarToggle');
+const navbarContent = document.getElementById('navbarContent');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    navControls.classList.toggle('active');
-});
-
-// Close menu when clicking on a link
-document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        navControls.classList.remove('active');
+if (navbarToggler && navbarContent) {
+    navbarToggler.addEventListener('click', () => {
+        // Toggle collapsed class on button
+        navbarToggler.classList.toggle('collapsed');
+        
+        // Toggle collapse class on content
+        navbarContent.classList.toggle('collapse');
+        
+        // Update aria-expanded
+        const isExpanded = !navbarToggler.classList.contains('collapsed');
+        navbarToggler.setAttribute('aria-expanded', isExpanded);
     });
-});
+
+    // Close menu when clicking on a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                navbarToggler.classList.add('collapsed');
+                navbarContent.classList.add('collapse');
+                navbarToggler.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+}
+
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+if (darkModeToggle) {
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        // Save preference
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+}
+
+// Language Toggle
+const langToggle = document.getElementById('langToggle');
+const html = document.documentElement;
+let currentLang = 'en';
+
+function switchLanguage(lang) {
+    currentLang = lang;
+    
+    // Update HTML lang and dir attributes
+    html.setAttribute('lang', lang);
+    html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    
+    // Update button text
+    if (langToggle) {
+        const langText = langToggle.querySelector('.lang-text');
+        if (langText) {
+            langText.textContent = lang === 'en' ? 'AR' : 'EN';
+        }
+    }
+    
+    // Update all elements with data-en and data-ar attributes
+    document.querySelectorAll('[data-en][data-ar]').forEach(element => {
+        const text = element.getAttribute(`data-${lang}`);
+        if (text) {
+            element.textContent = text;
+        }
+    });
+}
+
+if (langToggle) {
+    // Check for saved language preference
+    if (localStorage.getItem('language') === 'ar') {
+        switchLanguage('ar');
+    }
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'ar' : 'en';
+        switchLanguage(currentLang);
+        localStorage.setItem('language', currentLang);
+    });
+}
 
 // FAQ Toggle Functionality
 document.querySelectorAll('.faq-question').forEach(question => {
@@ -52,11 +125,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Active Navigation Indicator with Circle Animation
-const navLinks = document.querySelectorAll('nav a[href^="#"]');
-const navUl = document.querySelector('nav ul');
+const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+const navbarNav = document.querySelector('.navbar-nav');
 const sections = document.querySelectorAll('section[id]');
 
 function updateActiveLink() {
+    if (!navbarNav) return;
+    
     let currentSection = '';
     
     sections.forEach(section => {
@@ -75,27 +150,31 @@ function updateActiveLink() {
         if (href === currentSection) {
             link.classList.add('active');
             
-            // Move the circle indicator
-            const linkRect = link.getBoundingClientRect();
-            const ulRect = navUl.getBoundingClientRect();
-            const leftPosition = linkRect.left - ulRect.left + (linkRect.width / 2) - 40;
-            
-            navUl.style.setProperty('--indicator-left', `${leftPosition}px`);
+            // Move the circle indicator (only on desktop)
+            if (window.innerWidth > 768) {
+                const linkRect = link.getBoundingClientRect();
+                const navRect = navbarNav.getBoundingClientRect();
+                const leftPosition = linkRect.left - navRect.left + (linkRect.width / 2) - 45;
+                
+                navbarNav.style.setProperty('--indicator-left', `${leftPosition}px`);
+            }
         }
     });
 }
 
 // Set CSS variable for indicator position
-navUl.style.setProperty('--indicator-left', '0px');
+if (navbarNav) {
+    navbarNav.style.setProperty('--indicator-left', '0px');
 
-// Add CSS for the indicator movement
-const style = document.createElement('style');
-style.textContent = `
-    nav ul::before {
-        left: var(--indicator-left) !important;
-    }
-`;
-document.head.appendChild(style);
+    // Add CSS for the indicator movement
+    const style = document.createElement('style');
+    style.textContent = `
+        .navbar-nav::before {
+            left: var(--indicator-left) !important;
+        }
+    `;
+    document.head.appendChild(style);
+}
 
 // Initialize on page load
 window.addEventListener('load', () => {
@@ -119,6 +198,8 @@ window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     const pricingSection = document.getElementById('pricing');
     
+    if (!nav) return;
+    
     if (pricingSection) {
         const pricingTop = pricingSection.offsetTop;
         const pricingBottom = pricingTop + pricingSection.clientHeight;
@@ -141,56 +222,3 @@ window.addEventListener('scroll', () => {
         }
     }
 });
-
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById('darkModeToggle');
-const body = document.body;
-
-// Check for saved dark mode preference
-if (localStorage.getItem('darkMode') === 'enabled') {
-    body.classList.add('dark-mode');
-}
-
-darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    
-    // Save preference
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
-    }
-});
-
-// Language Toggle
-const langToggle = document.getElementById('langToggle');
-const html = document.documentElement;
-let currentLang = 'en';
-
-// Check for saved language preference
-if (localStorage.getItem('language') === 'ar') {
-    switchLanguage('ar');
-}
-
-langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    switchLanguage(currentLang);
-    localStorage.setItem('language', currentLang);
-});
-
-function switchLanguage(lang) {
-    currentLang = lang;
-    
-    // Update HTML lang and dir attributes
-    html.setAttribute('lang', lang);
-    html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    
-    // Update button text
-    const langText = langToggle.querySelector('.lang-text');
-    langText.textContent = lang === 'en' ? 'AR' : 'EN';
-    
-    // Update all elements with data-en and data-ar attributes
-    document.querySelectorAll('[data-en][data-ar]').forEach(element => {
-        element.textContent = element.getAttribute(`data-${lang}`);
-    });
-}

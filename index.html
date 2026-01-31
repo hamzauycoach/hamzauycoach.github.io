@@ -15,32 +15,51 @@
         <div class="nav-logo">Hamzauy Coaching</div>
         
         <!-- Hamburger Menu Button -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <button class="navbar-toggler collapsed" type="button" id="navbarToggle" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
         </button>
         
-        <ul id="navMenu">
-            <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
-            <li><a href="#video" data-en="Video" data-ar="الفيديو">Video</a></li>
-            <li><a href="#features" data-en="Features" data-ar="المميزات">Features</a></li>
-            <li><a href="#subscribe" data-en="Subscribe" data-ar="الاشتراك">Subscribe</a></li>
-            <li><a href="#pricing" data-en="Plans" data-ar="الخطط">Plans</a></li>
-            <li><a href="#reviews" data-en="Reviews" data-ar="التقييمات">Reviews</a></li>
-            <li><a href="#faq" data-en="FAQ" data-ar="الأسئلة">FAQ</a></li>
-        </ul>
-        
-        <div class="nav-controls">
-            <!-- Dark Mode Toggle -->
-            <button id="darkModeToggle" class="toggle-btn" aria-label="Toggle Dark Mode">
-                <span class="sun">☀️</span>
-                <span class="moon">🌙</span>
-            </button>
-            <!-- Language Toggle -->
-            <button id="langToggle" class="toggle-btn lang-btn" aria-label="Toggle Language">
-                <span class="lang-text">AR</span>
-            </button>
+        <!-- Collapsible Navigation Content -->
+        <div class="navbar-collapse collapse" id="navbarContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#video" data-en="Video" data-ar="الفيديو">Video</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features" data-en="Features" data-ar="المميزات">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#subscribe" data-en="Subscribe" data-ar="الاشتراك">Subscribe</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#pricing" data-en="Plans" data-ar="الخطط">Plans</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reviews" data-en="Reviews" data-ar="التقييمات">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq" data-en="FAQ" data-ar="الأسئلة">FAQ</a>
+                </li>
+            </ul>
+            
+            <div class="navbar-controls">
+                <!-- Dark Mode Toggle -->
+                <button id="darkModeToggle" class="toggle-btn" aria-label="Toggle Dark Mode">
+                    <span class="sun">☀️</span>
+                    <span class="moon">🌙</span>
+                </button>
+                <!-- Language Toggle -->
+                <button id="langToggle" class="toggle-btn lang-btn" aria-label="Toggle Language">
+                    <span class="lang-text">AR</span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -135,7 +154,7 @@
                     <li data-en="Priority response" data-ar="اولوية في الرد">Priority response</li>
                     <li data-en="Weekly video or voice call" data-ar="مكالمة فيديو او صوتية اسبوعية">Weekly video or voice call</li>
                 </ul>
-                <a href="#" class="btn" data-en="Join Now" data-ar="انضم الآن">Join Now</a>
+                <a href="payment.html" class="btn" data-en="Join Now" data-ar="انضم الآن">Join Now</a>
             </div>
             <div class="pricing-card featured">
                 <h3 data-en="VIP" data-ar="VIP">VIP</h3>
