@@ -637,6 +637,12 @@ html[lang="ar"] body {
     font-size: 1.2rem;
 }
 
+.tab-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
 /* Tab Content */
 .payment-tab-content {
     display: none;
@@ -651,6 +657,62 @@ html[lang="ar"] body {
     color: #666;
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Payment Steps */
+.payment-steps {
+    background: linear-gradient(135deg, rgba(99,164,168,0.05), rgba(74,138,142,0.05));
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.payment-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: #fff;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.payment-step:last-child {
+    margin-bottom: 0;
+}
+
+.payment-step:hover {
+    transform: translateX(-5px);
+    box-shadow: 0 2px 8px rgba(99,164,168,0.15);
+}
+
+html[dir="rtl"] .payment-step:hover {
+    transform: translateX(5px);
+}
+
+.step-number-small {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #63a4a8, #4a8a8e);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.payment-step p {
+    flex: 1;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #333;
+    padding-top: 0.3rem;
 }
 
 /* QR Code */
@@ -785,6 +847,41 @@ html[lang="ar"] body {
     box-shadow: 0 6px 20px rgba(99,164,168,0.4);
 }
 
+/* WhatsApp Button */
+.btn-whatsapp {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+}
+
+.btn-whatsapp:hover {
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37,211,102,0.5);
+}
+
+.btn-whatsapp:active {
+    transform: translateY(-1px);
+}
+
+.btn-whatsapp svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
 /* Dark Mode Modal Styles */
 body.dark-mode .modal-close:hover {
     color: #fff;
@@ -807,6 +904,18 @@ body.dark-mode .wallet-info {
 
 body.dark-mode .payment-instructions {
     background: rgba(99,164,168,0.2);
+}
+
+body.dark-mode .payment-steps {
+    background: linear-gradient(135deg, rgba(99,164,168,0.1), rgba(74,138,142,0.1));
+}
+
+body.dark-mode .payment-step {
+    background: #2a2a2a;
+}
+
+body.dark-mode .payment-step p {
+    color: #e0e0e0;
 }
 
 /* Responsive */
